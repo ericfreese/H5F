@@ -246,7 +246,7 @@
             isNative = !!("placeholder" in field);
         
         if(!isNative && node.test(el.nodeName) && !ignoredType.test(el.type)) {
-            if(el.value === "" && !focus.test(curEvt) && el !== d.activeElement) {
+            if((el.value === "" || el.value === attrs.placeholder) && !focus.test(curEvt) && el !== d.activeElement) {
                 el.value = attrs.placeholder;
                 listen(el.form,'submit', function () {
                   curEvt = 'submit';
